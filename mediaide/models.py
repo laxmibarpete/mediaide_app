@@ -26,6 +26,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     address = models.CharField(max_length=70, blank=True)
     date_joined =  models.DateTimeField(auto_now_add=True)
     agree = models.BooleanField(_('T&C'), default=False)
+    doctor = models.CharField(_('doctor'), max_length=30, blank=True, null=True)
+    services_need = models.CharField(_('services_need'), max_length=30, blank=True, null=True)
+    hospital_name = models.CharField(_('hospital_name'), max_length=30, blank=True, null=True)
+    treatment = models.CharField(_('treatment'), max_length=30, blank=True, null=True)
 
     objects = UserManager()
     USERNAME_FIELD = 'email'
@@ -50,11 +54,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 class TermsAndConditions(models.Model):
     description = models.TextField()
 
+def user_directory_path(instance, filename):
+    instance.name = filename
+    return '{0}/{1}'.format(instance.user.id, filename)
+
 
 class UserDocuments(models.Model):
     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE, related_name='document')
     description = models.CharField(max_length=255, blank=True)
-    document = models.FileField(upload_to='documents/')
+    document = models.FileField(upload_to='user_directory_path')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 
