@@ -146,7 +146,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tonightapps',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'tonightapps',
         'HOST': 'localhost',
         'PORT': '',
     }
