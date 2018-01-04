@@ -26,6 +26,9 @@ SECRET_KEY = 'km&i_drw(cara6xuyqt)qh6dsaoukt+8l)&ko%#)l5+fqhnokn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ALLOWED_HOSTS = ['*']
 
 JWT_ALGORITHM = 'HS256'
@@ -96,33 +99,25 @@ REST_FRAMEWORK = {
 
 
 MIDDLEWARE_CLASSES = [
-    'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-       
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-#    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL=True
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-)
 
 ROOT_URLCONF = 'Mediaide.urls'
 
 TEMPLATES = [
-   {
+    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
@@ -137,6 +132,7 @@ TEMPLATES = [
     },
 ]
 
+
 AUTH_USER_MODEL = 'mediaide.CustomUser'
 
 WSGI_APPLICATION = 'Mediaide.wsgi.application'
@@ -150,7 +146,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tonightapps',
         'USER': 'root',
-        'PASSWORD': 'tonightapps',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '',
     }

@@ -54,6 +54,12 @@ class UserDocumentsSerializer(serializers.ModelSerializer):
         model = UserDocuments
         fields = ('user', 'description', 'document')
 
+    def to_representation(self, value):
+        response = dict(super(UserDocumentsSerializer, self).to_representation(value))
+        response['document'] = "{}{}".format('api', value.document.url)
+        print response['document']
+        return response
+
     
 class CountryVisaSerializer(serializers.ModelSerializer):
     class Meta:

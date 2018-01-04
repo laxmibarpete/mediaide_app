@@ -4,7 +4,8 @@ from mediaide import views
 from mediaide.views import Logout, ResendMes, UserEnquiryView, CustomUserView, MedicalPackagesView, \
     CountryVisaView, FacilitiesView, ContactUsView, user_login, get_estimate_data, forget_password, UserDocumentView
 from .views import RegisterUser, upload_data
-
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework import routers
 
 router = routers.SimpleRouter()
@@ -29,5 +30,5 @@ urlpatterns = [
     url(r'^resend-confirmation-mail/$', ResendMes.as_view()),
     url(r'^confirm/(?P<confirmation_code>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/(?P<id>[\w]+)/$',
         views.confirm,name='confirm'),
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
