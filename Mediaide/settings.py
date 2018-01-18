@@ -203,6 +203,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Email setting
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
