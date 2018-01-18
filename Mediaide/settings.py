@@ -147,17 +147,17 @@ WSGI_APPLICATION = 'Mediaide.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tonightapps',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8uh3052b4k94b',
+        'USER': 'qdjgldnmguvitw',
+        'PASSWORD': '0a49fddcdb1f8818e0cd1b8ae09e499c56ad4fb919ddf0d1e00ad7e9a313609c',
+        'HOST': 'ec2-54-197-233-123.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
