@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'km&i_drw(cara6xuyqt)qh6dsaoukt+8l)&ko%#)l5+fqhnokn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 MEDIA_URL = '/media/'
@@ -32,8 +32,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ALLOWED_HOSTS = ['*']
 
 JWT_ALGORITHM = 'HS256'
-
-CORS_ALLOW_CREDENTIALS = False
 
 
 # Application definition
@@ -112,7 +110,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL=True
 
 ROOT_URLCONF = 'Mediaide.urls'
 
@@ -146,7 +143,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tonightapps',
         'USER': 'root',
-        'PASSWORD': 'tonightapps',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -189,6 +186,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Email setting
 EMAIL_USE_TLS = True
@@ -196,4 +195,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'golubarpete786@gmail.com'
 EMAIL_HOST_PASSWORD = 'oracle005@'
 EMAIL_PORT = 58
+
+CORS_ALLOW_CREDENTIALS = False
+CORS_ORIGIN_ALLOW_ALL=False
+
+
+CORS_ORIGIN_WHITELIST = (
+    'mediaide.in',
+)
 
